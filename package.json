@@ -1,0 +1,23 @@
+{
+  "name": "meadowlark",
+  "version": "1.0.0",
+  "description": "Meadowlark site travel agencies. Development with Node and Express.",
+  "main": "meadowlark.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/DemyanchikVadim/meadowlark.git"
+  },
+  "author": "Vadim Demyanchik",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/DemyanchikVadim/meadowlark/issues"
+  },
+  "homepage": "https://github.com/DemyanchikVadim/meadowlark#readme",
+  "dependencies": {
+    "express": "^4.14.0",
+    "express-handlebars": "^3.0.0"
+  }
+}
