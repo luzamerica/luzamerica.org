@@ -195,6 +195,15 @@ app.use(function (req, res, next) {
     next();
 });
 
+var admin = express.Router();
+app.use(require('vhost')('admin.*', admin));
+admin.get('/', function (req, res) {
+    res.render('admin/home');
+});
+admin.get('/users', function (req, res) {
+    res.render('admin/users');
+});
+
 app.get('/', function (req, res) {
     res.render('home');
 });
