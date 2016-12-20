@@ -18,10 +18,10 @@
   "homepage": "https://github.com/DemyanchikVadim/meadowlark#readme",
   "dependencies": {
     "body-parser": "^1.15.2",
-    "cookie-parser": "^1.4.3",
     "connect": "^2.19.5",
     "connect-bundle": "0.0.5-beta",
     "connect-rest": "^0.9.12",
+    "cookie-parser": "^1.4.3",
     "express": "^4.14.0",
     "express-handlebars": "^3.0.0",
     "express-logger": "0.0.3",
@@ -33,6 +33,7 @@
     "nodemailer": "^0.7.1",
     "q": "^1.0.1",
     "session-mongoose": "^0.5.2",
+    "underscore": "^1.8.3",
     "vhost": "^3.0.2"
   },
   "devDependencies": {
