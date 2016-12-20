@@ -19,6 +19,8 @@
   "dependencies": {
     "body-parser": "^1.15.2",
     "cookie-parser": "^1.4.3",
+    "connect": "^2.19.5",
+    "connect-rest": "^0.9.12",
     "express": "^4.14.0",
     "express-handlebars": "^3.0.0",
     "express-logger": "0.0.3",
@@ -37,6 +39,7 @@
     "grunt": "^1.0.1",
     "grunt-cafe-mocha": "^0.1.13",
     "grunt-contrib-jshint": "^1.1.0",
-    "mocha": "^3.2.0"
+    "mocha": "^3.2.0",
+    "restler": "^3.4.0"
   }
 }
