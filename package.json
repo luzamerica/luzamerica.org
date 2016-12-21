@@ -1,0 +1,54 @@
+{
+  "name": "meadowlark",
+  "version": "1.0.0",
+  "description": "Meadowlark site travel agencies. Development with Node and Express.",
+  "main": "meadowlark.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/DemyanchikVadim/meadowlark.git"
+  },
+  "author": "Vadim Demyanchik",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/DemyanchikVadim/meadowlark/issues"
+  },
+  "homepage": "https://github.com/DemyanchikVadim/meadowlark#readme",
+  "dependencies": {
+    "body-parser": "^1.15.2",
+    "connect": "^2.19.5",
+    "connect-bundle": "0.0.5-beta",
+    "connect-rest": "^0.9.12",
+    "cookie-parser": "^1.4.3",
+    "express": "^4.14.0",
+    "express-handlebars": "^3.0.0",
+    "express-logger": "0.0.3",
+    "express-session": "^1.14.2",
+    "formidable": "^1.0.17",
+    "loadtest": "^2.2.1",
+    "mongoose": "^4.7.3",
+    "morgan": "^1.7.0",
+    "nodemailer": "^0.7.1",
+    "passport": "^0.3.2",
+    "passport-facebook": "^2.1.1",
+    "q": "^1.0.1",
+    "session-mongoose": "^0.5.2",
+    "underscore": "^1.8.3",
+    "vhost": "^3.0.2"
+  },
+  "devDependencies": {
+    "chai": "^3.5.0",
+    "grunt": "^1.0.1",
+    "grunt-cafe-mocha": "^0.1.13",
+    "grunt-contrib-cssmin": "^1.0.2",
+    "grunt-contrib-jshint": "^1.1.0",
+    "grunt-contrib-less": "^1.4.0",
+    "grunt-contrib-uglify": "^2.0.0",
+    "grunt-hashres": "^0.4.1",
+    "grunt-lint-pattern": "^0.1.4",
+    "mocha": "^3.2.0",
+    "restler": "^3.4.0"
+  }
+}
