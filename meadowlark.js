@@ -96,6 +96,7 @@ switch (app.get('env')) {
 var MongoSessionStore = require('session-mongoose')(require('connect'));
 var sessionStore = new MongoSessionStore({url: credentials.mongo[app.get('env')].connectionString});
 
+app.use(require('body-parser')());
 app.use(require('cookie-parser')(credentials.cookieSecret));
 app.use(require('express-session')({
     resave: false,
@@ -103,8 +104,13 @@ app.use(require('express-session')({
     secret: credentials.cookieSecret,
     store: sessionStore
 }));
+app.use(require('csurf')());
+app.use(function (req, res, next) {
+    res.locals._csrfToken = req.csrfToken();
+    next();
+});
+
 app.use(express.static(__dirname + '/public'));
-app.use(require('body-parser')());
 
 // database configuration
 var mongoose = require('mongoose');
@@ -273,7 +279,7 @@ rest.get('/attractions', function (req, content, cb) {
             return {
                 name: a.name,
                 description: a.description,
-                location: a.location
+                location: a.location,
             };
         }));
     });
@@ -328,6 +334,59 @@ apiOptions.domain.on('error', function (err) {
 // link API into pipeline
 // currently commented out to reduce console noise
 //app.use(vhost('api.*', rest.rester(apiOptions)));
+
+// authentication
+var auth = require('./lib/auth.js')(app, {
+    baseUrl: process.env.BASE_URL,
+    providers: credentials.authProviders,
+    successRedirect: '/account',
+    failureRedirect: '/unauthorized'
+});
+// auth.init() links in Passport middleware:
+auth.init();
+
+// now we can specify our auth routes:
+auth.registerRoutes();
+
+// authorization helpers
+function customerOnly(req, res, next) {
+    if (req.user && req.user.role === 'customer') return next();
+    // we want customer-only pages to know they need to logon
+    res.redirect(303, '/unauthorized');
+}
+function employeeOnly(req, res, next) {
+    if (req.user && req.user.role === 'employee') return next();
+    // we want employee-only authorization failures to be "hidden", to
+    // prevent potential hackers from even knowhing that such a page exists
+    next('route');
+}
+function allow(roles) {
+    return function (req, res, next) {
+        if (req.user && roles.split(',').indexOf(req.user.role) !== -1) return next();
+        res.redirect(303, '/unauthorized');
+    };
+}
+
+app.get('/unauthorized', function (req, res) {
+    res.status(403).render('unauthorized');
+});
+
+// customer routes
+
+app.get('/account', allow('customer,employee'), function (req, res) {
+    res.render('account', {username: req.user.name});
+});
+app.get('/account/order-history', customerOnly, function (req, res) {
+    res.render('account/order-history');
+});
+app.get('/account/email-prefs', customerOnly, function (req, res) {
+    res.render('account/email-prefs');
+});
+
+// employer routes
+app.get('/sales', employeeOnly, function (req, res) {
+    res.render('sales');
+});
 
 // add support for auto views
 var autoViews = {};
