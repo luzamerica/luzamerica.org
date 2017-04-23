@@ -18,7 +18,8 @@ module.exports = {
       ref: 'origin/master',
       repo: 'git@github.com:luzamerica/luzamerica.org.git',
       path: '/home/ubuntu/luzamerica.org',
-      'post-deploy': 'npm install;npm run build;pm2 stop;killall -9 node;pm2 start index.js --name "luzamerica.org" ecosystem.config.js'
+      'post-deploy': 'npm i && pm2 startOrGracefulReload ecosystem.json --env production',
+      'forward-agent': 'yes'
     }
   }
 }
