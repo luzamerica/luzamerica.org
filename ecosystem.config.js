@@ -12,7 +12,7 @@ module.exports = {
   }],
   deploy: {
     production: {
-      user: 'ubuntu@ec2-54-186-0-245.us-west-2.compute.amazonaws.com',
+      user: 'dapinitial',
       host: 'ec2-54-186-0-245.us-west-2.compute.amazonaws.com',
       key: '~/.ssh/luzamerica.pem',
       ref: 'origin/master',
