@@ -1,0 +1,76 @@
+// @import url(http://fonts.googleapis.com/css?family=Lato:100,300,400,500,700);
+@import url('https://fonts.googleapis.com/css?family=Open+Sans|Poppins:400,500');
+
+h1 {
+  @include fontSmoothing;
+  color: #272b2b;
+	font-family: "Adobe Garamond Pro", "Garamond", "Baskerville", "Baskerville Old Face", "Hoefler Text", "Times New Roman", serif;
+	font-size: 56px;
+	font-style: normal;
+	font-variant: normal;
+	font-weight: 500;
+	line-height: 64px;
+}
+h2 {
+  @include fontSmoothing;
+	font-family: "Adobe Garamond Pro", "Garamond", "Baskerville", "Baskerville Old Face", "Hoefler Text", "Times New Roman", serif;
+	font-size: 17px;
+	font-style: normal;
+	font-variant: normal;
+	font-weight: 500;
+	line-height: 23px;
+}
+h3 {
+  @include fontSmoothing;
+	font-family: "Adobe Garamond Pro", "Garamond", "Baskerville", "Baskerville Old Face", "Hoefler Text", "Times New Roman", serif;
+	font-size: 17px;
+	font-style: normal;
+	font-variant: normal;
+	font-weight: 500;
+	line-height: 23px;
+}
+h4 {
+  @include fontSmoothing;
+	font-family: "Adobe Garamond Pro", "Garamond", "Baskerville", "Baskerville Old Face", "Hoefler Text", "Times New Roman", serif;
+	font-size: 17px;
+	font-style: normal;
+	font-variant: normal;
+	font-weight: 500;
+	line-height: 23px;
+}
+h5 {
+  @include fontSmoothing;
+	font-family: "Adobe Garamond Pro", "Garamond", "Baskerville", "Baskerville Old Face", "Hoefler Text", "Times New Roman", serif;
+	font-size: 17px;
+	font-style: normal;
+	font-variant: normal;
+	font-weight: 500;
+	line-height: 23px;
+}
+h6 {
+  @include fontSmoothing;
+	font-family: "Adobe Garamond Pro", "Garamond", "Baskerville", "Baskerville Old Face", "Hoefler Text", "Times New Roman", serif;
+	font-size: 17px;
+	font-style: normal;
+	font-variant: normal;
+	font-weight: 500;
+	line-height: 23px;
+}
+p {
+	font-family: "Adobe Garamond Pro", "Garamond", "Baskerville", "Baskerville Old Face", "Hoefler Text", "Times New Roman", serif;
+  font-size: 18px;
+	font-style: normal;
+	font-variant: normal;
+	font-weight: 500;
+	line-height: 24px;
+  text-indent: 6px;
+}
+blockquote {
+  font-family: "Adobe Garamond Pro", "Garamond", "Baskerville", "Baskerville Old Face", "Hoefler Text", "Times New Roman", serif;
+  font-size: 24px;
+	font-style: normal;
+	font-variant: normal;
+	font-weight: 400;
+	line-height: 32px;
+  text-indent: 6px;
+}

@@ -1,0 +1,70 @@
+// Gracious! This is the layout Mixin you've been longing for!!!
+// Step 1) Setup your ratio
+// Example: 1.61803398875 = Golden Ratio
+$ratio: 1.618;
+$sm-width: 0px;
+$mobile-width: 440px;
+$tablet-width: 768px;
+$desktop-width: 769px;
+
+@mixin mobile {
+  @media (min-width: #{$sm-width}) and (max-width: #{$mobile-width}) {
+    @content;
+  }
+}
+
+@mixin tablet {
+  @media (min-width: #{$mobile-width}) and (max-width: #{$tablet-width}) {
+    @content;
+  }
+}
+
+@mixin desktop {
+  @media (min-width: #{$desktop-width}) {
+    @content;
+  }
+}
+
+@mixin layout($font-size) {
+  $base-line-height: $font-size * $ratio;
+  $padding: $base-line-height;
+  .card {
+    @include card;
+    background-color: rgba(255, 255, 255, .69);
+    border: 1px solid rgba(0, 0, 0, .05);
+    margin: ($font-size * $ratio) / 3;
+  }
+  .card-contents {}
+  .card-header {
+    padding: 14px;
+    position: relative;
+  }
+  .card-body {
+    font-size: $font-size;
+    padding: 14px;
+  }
+  .card-footer {
+    padding: 14px;
+  }
+} // end layout mixin
+
+
+// Step 2) Pick your base font size per breakpoint using the mixin
+//Example: @include typography(16px);
+//Declare you breakpoints
+@media (max-width: 299px) {
+  @include layout(13px);
+}
+
+//start of mobile first breakpoints
+@media (min-width: 300px) {
+  @include layout(16px);
+}
+
+@media(min-width: 600px) {
+  @include layout(18px);
+}
+
+@media(min-width: 1000px) {
+  @include layout(24px);
+}
